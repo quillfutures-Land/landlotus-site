@@ -6,206 +6,219 @@
   <title>Land Lotus — We Buy Land Across America</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --green: #4a6741; --green-dark: #344a2e; --green-light: #6a8f60;
-      --pink: #b5527a; --pink-light: #d4789a; --pink-pale: #f5e8ef;
-      --cream: #faf7f2; --sand: #f0ebe0; --ink: #1e1e1a; --mid: #6b6458;
-      --border: rgba(74,103,65,0.15);
+      --green: #4a6741; --green-dark: #2e3d28; --green-light: #6a8f60;
+      --pink: #b5527a; --pink-light: #d4789a; --pink-pale: #fdf0f5;
+      --cream: #faf7f2; --sand: #f2ece0; --ink: #1e1c18; --mid: #6b6355;
+      --border: rgba(74,103,65,0.14); --shadow: 0 4px 24px rgba(30,28,24,0.08);
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--ink); line-height: 1.6; overflow-x: hidden; }
+    img { display: block; max-width: 100%; }
 
-    nav {
-      position: sticky; top: 0; z-index: 200;
-      background: var(--cream); border-bottom: 1px solid var(--border);
-      padding: 0 4rem; display: flex; align-items: center;
-      justify-content: space-between; height: 76px;
-    }
-    .nav-logo { display: flex; align-items: center; text-decoration: none; }
-    .nav-logo-wrap { background: var(--ink); border-radius: 4px; padding: 5px 12px; display: flex; align-items: center; }
-    .nav-logo-wrap img { height: 34px; width: auto; display: block; }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
-    .nav-links a { text-decoration: none; color: var(--mid); font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
+    nav { position: sticky; top: 0; z-index: 500; background: #fff; border-bottom: 1px solid var(--border); padding: 0 5%; height: 68px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 1px 12px rgba(30,28,24,0.06); }
+    .nav-logo { background: var(--ink); border-radius: 5px; padding: 5px 11px; line-height: 0; }
+    .nav-logo img { height: 32px; width: auto; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+    .nav-links a { text-decoration: none; color: var(--mid); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
     .nav-links a:hover { color: var(--green); }
-    .nav-cta { background: var(--pink) !important; color: #fff !important; padding: 0.55rem 1.4rem; border-radius: 2px; }
-    .nav-cta:hover { background: var(--pink-light) !important; }
+    .nav-cta { background: var(--pink) !important; color: #fff !important; padding: 0.5rem 1.25rem; border-radius: 3px; }
+    .nav-cta:hover { background: var(--pink-light) !important; color: #fff !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--ink); border-radius: 2px; }
+    .mobile-menu { display: none; position: absolute; top: 68px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); padding: 1.5rem 5%; flex-direction: column; gap: 1.25rem; z-index: 499; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { text-decoration: none; color: var(--mid); font-size: 0.9rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
+    .mobile-menu .mob-cta { background: var(--pink); color: #fff !important; padding: 0.75rem 1.25rem; border-radius: 3px; text-align: center; }
 
-    .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 600px; }
-    .hero-left { position: relative; overflow: hidden; }
-    .hero-left img.hero-bg { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(30,44,26,0.75) 0%, rgba(30,44,26,0.3) 100%); }
-    .hero-left-content { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 3.5rem; }
-    .hero-tagline { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem,3.8vw,3.6rem); font-weight: 300; line-height: 1.15; color: #fff; margin-bottom: 1.25rem; }
-    .hero-tagline em { font-style: italic; color: var(--pink-light); }
-    .hero-sub { font-size: 0.92rem; color: rgba(255,255,255,0.72); font-weight: 300; line-height: 1.8; max-width: 380px; margin-bottom: 2rem; }
-    .hero-stats { display: flex; gap: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.18); }
-    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; color: #fff; line-height: 1; display: block; }
-    .stat-label { font-size: 0.67rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
-
-    .hero-right { background: var(--sand); display: flex; flex-direction: column; justify-content: center; padding: 4rem; gap: 1.75rem; }
-    .eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--pink); display: flex; align-items: center; gap: 0.6rem; }
-    .eyebrow::before { content: ''; display: block; width: 26px; height: 1px; background: var(--pink); }
-    .hero-right h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem,2.4vw,2.2rem); font-weight: 400; line-height: 1.3; color: var(--ink); }
-    .hero-right p { font-size: 0.9rem; color: var(--mid); font-weight: 300; line-height: 1.8; }
-    .cta-row { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
-    .btn-pink { background: var(--pink); color: #fff; padding: 0.9rem 2rem; border-radius: 2px; text-decoration: none; font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em; transition: background 0.2s, transform 0.15s; display: inline-block; }
+    .hero { position: relative; min-height: 90vh; display: flex; align-items: center; }
+    .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(15,22,12,0.85) 0%, rgba(15,22,12,0.5) 55%, rgba(15,22,12,0.2) 100%); }
+    .hero-content { position: relative; z-index: 2; max-width: 640px; padding: 4rem 5%; display: flex; flex-direction: column; gap: 1.4rem; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(181,82,122,0.88); color: #fff; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.32rem 0.8rem; border-radius: 50px; width: fit-content; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem,6vw,4rem); font-weight: 300; line-height: 1.1; color: #fff; }
+    .hero h1 em { font-style: italic; color: var(--pink-light); }
+    .hero-sub { font-size: 1rem; color: rgba(255,255,255,0.75); font-weight: 300; line-height: 1.75; max-width: 480px; }
+    .hero-stats { display: flex; gap: 2.5rem; padding: 1.25rem 0; border-top: 1px solid rgba(255,255,255,0.18); border-bottom: 1px solid rgba(255,255,255,0.18); }
+    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: #fff; line-height: 1; display: block; }
+    .stat-label { font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.48); }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-pink { background: var(--pink); color: #fff; padding: 0.85rem 1.75rem; border-radius: 3px; text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: background 0.2s, transform 0.15s; display: inline-flex; align-items: center; gap: 0.4rem; }
     .btn-pink:hover { background: var(--pink-light); transform: translateY(-1px); }
-    .phone-link { color: var(--ink); font-size: 0.9rem; font-weight: 500; text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: color 0.2s; }
-    .phone-link:hover { color: var(--green); }
+    .btn-ghost { color: #fff; padding: 0.85rem 1.75rem; border-radius: 3px; text-decoration: none; font-size: 0.9rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.38); transition: background 0.2s; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .btn-ghost:hover { background: rgba(255,255,255,0.1); }
 
-    .photo-strip { display: grid; grid-template-columns: repeat(4,1fr); height: 200px; }
+    .trust-bar { background: var(--green-dark); padding: 1.1rem 5%; display: flex; align-items: center; justify-content: center; gap: 2.5rem; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.78); font-size: 0.82rem; white-space: nowrap; }
+
+    .photo-strip { display: grid; grid-template-columns: repeat(4,1fr); height: 210px; }
     .strip-item { position: relative; overflow: hidden; }
-    .strip-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+    .strip-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
     .strip-item:hover img { transform: scale(1.06); }
-    .strip-label { position: absolute; bottom: 0.75rem; left: 0.75rem; background: rgba(10,18,8,0.6); backdrop-filter: blur(4px); color: #fff; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.25rem 0.6rem; border-radius: 1px; }
+    .strip-label { position: absolute; bottom: 0.7rem; left: 0.7rem; background: rgba(8,14,6,0.65); backdrop-filter: blur(4px); color: #fff; font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.2rem 0.55rem; border-radius: 2px; }
 
-    .section { padding: 5.5rem 4rem; }
-    .section-eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--pink); display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.75rem; }
-    .section-eyebrow::before { content: ''; display: block; width: 22px; height: 1px; background: var(--pink); }
-    h2.section-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem,2.8vw,2.8rem); font-weight: 400; line-height: 1.2; color: var(--ink); margin-bottom: 3rem; }
+    .section { padding: 5rem 5%; }
+    .section-alt { background: var(--sand); }
+    .section-dark { background: var(--green-dark); }
+    .eyebrow { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--pink); display: flex; align-items: center; gap: 0.55rem; margin-bottom: 0.7rem; }
+    .eyebrow::before { content: ''; display: block; width: 18px; height: 1px; background: var(--pink); flex-shrink: 0; }
+    .eyebrow-light { color: var(--pink-light); }
+    .eyebrow-light::before { background: var(--pink-light); }
+    h2.sh { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.9rem,3.5vw,2.8rem); font-weight: 400; line-height: 1.2; color: var(--ink); margin-bottom: 2.5rem; }
+    h2.sh-light { color: #fff; }
 
     .steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
-    .step { border-radius: 3px; overflow: hidden; border: 1px solid var(--border); background: #fff; transition: box-shadow 0.25s, transform 0.25s; }
-    .step:hover { box-shadow: 0 12px 40px rgba(74,103,65,0.1); transform: translateY(-3px); }
-    .step-photo { height: 180px; overflow: hidden; position: relative; }
-    .step-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
+    .step { background: #fff; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); transition: transform 0.25s, box-shadow 0.25s; }
+    .step:hover { transform: translateY(-4px); box-shadow: 0 14px 40px rgba(30,28,24,0.12); }
+    .step-photo { height: 185px; overflow: hidden; position: relative; }
+    .step-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
     .step:hover .step-photo img { transform: scale(1.05); }
-    .step-badge { position: absolute; top: 1rem; left: 1rem; width: 30px; height: 30px; background: var(--pink); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 500; }
-    .step-body { padding: 1.75rem; }
-    .step h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; margin-bottom: 0.6rem; color: var(--ink); }
+    .step-badge { position: absolute; top: 1rem; left: 1rem; width: 30px; height: 30px; background: var(--pink); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 600; }
+    .step-body { padding: 1.6rem; }
+    .step h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--ink); margin-bottom: 0.55rem; }
     .step p { font-size: 0.87rem; color: var(--mid); line-height: 1.75; font-weight: 300; }
 
-    .why-section { background: var(--green-dark); padding: 5.5rem 4rem; position: relative; overflow: hidden; }
-    .why-section::before { content: ''; position: absolute; top: -80px; right: -80px; width: 450px; height: 450px; border-radius: 50%; background: radial-gradient(circle, rgba(181,82,122,0.12) 0%, transparent 70%); }
-    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; position: relative; z-index: 1; }
-    .why-eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--pink-light); display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.75rem; }
-    .why-eyebrow::before { content: ''; display: block; width: 22px; height: 1px; background: var(--pink-light); }
-    .why-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem,2.6vw,2.6rem); font-weight: 300; color: #fff; line-height: 1.25; margin-bottom: 2.5rem; }
-    .why-list { display: flex; flex-direction: column; gap: 1.5rem; }
-    .why-item { display: flex; gap: 1rem; align-items: flex-start; }
-    .why-check { width: 22px; height: 22px; min-width: 22px; border-radius: 50%; background: var(--pink); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 0.68rem; font-weight: 700; margin-top: 2px; }
-    .why-item h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 600; color: rgba(255,255,255,0.92); margin-bottom: 0.15rem; }
-    .why-item p { font-size: 0.85rem; color: rgba(255,255,255,0.48); font-weight: 300; line-height: 1.65; }
-    .why-photo { border-radius: 4px; overflow: hidden; position: relative; height: 460px; }
-    .why-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .why-photo-cta { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(20,35,18,0.92) 0%, transparent 100%); padding: 3rem 2rem 2rem; }
-    .why-photo-cta h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; color: #fff; margin-bottom: 0.5rem; }
-    .why-photo-cta p { font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-bottom: 1.25rem; font-weight: 300; }
-    .btn-outline { border: 1px solid rgba(255,255,255,0.45); color: #fff; padding: 0.7rem 1.5rem; border-radius: 2px; text-decoration: none; font-size: 0.85rem; font-weight: 500; display: inline-block; transition: background 0.2s, border-color 0.2s; }
-    .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.8); }
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .why-list { display: flex; flex-direction: column; gap: 1.35rem; margin-top: 0.5rem; }
+    .why-item { display: flex; gap: 0.9rem; align-items: flex-start; }
+    .why-icon { width: 24px; height: 24px; min-width: 24px; background: var(--pink); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 0.68rem; font-weight: 700; margin-top: 2px; }
+    .why-item h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 600; color: rgba(255,255,255,0.92); margin-bottom: 0.12rem; }
+    .why-item p { font-size: 0.84rem; color: rgba(255,255,255,0.48); font-weight: 300; line-height: 1.6; }
+    .why-photo { border-radius: 8px; overflow: hidden; position: relative; height: 480px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+    .why-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .why-cta { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(12,20,10,0.95) 0%, transparent 100%); padding: 3.5rem 2rem 2rem; }
+    .why-cta h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; font-weight: 400; color: #fff; margin-bottom: 0.45rem; }
+    .why-cta p { font-size: 0.84rem; color: rgba(255,255,255,0.58); margin-bottom: 1.2rem; font-weight: 300; }
+    .btn-ow { border: 1px solid rgba(255,255,255,0.4); color: #fff; padding: 0.7rem 1.4rem; border-radius: 3px; text-decoration: none; font-size: 0.84rem; font-weight: 500; display: inline-block; transition: background 0.2s; }
+    .btn-ow:hover { background: rgba(255,255,255,0.1); }
 
-    #contact { padding: 5.5rem 4rem; }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 5rem; }
-    .contact-left h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem,2.5vw,2.4rem); font-weight: 400; line-height: 1.25; margin-bottom: 1.25rem; }
-    .contact-left p { font-size: 0.9rem; color: var(--mid); font-weight: 300; line-height: 1.8; margin-bottom: 2rem; }
-    .contact-details { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2rem; }
-    .contact-details a { color: var(--green); text-decoration: none; font-size: 0.92rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem; }
-    .contact-details a:hover { text-decoration: underline; }
-    .sms-box { background: var(--pink-pale); border-left: 3px solid var(--pink); padding: 1rem 1.25rem; font-size: 0.77rem; color: var(--mid); line-height: 1.65; border-radius: 0 2px 2px 0; }
-    .form-card { background: #fff; border: 1px solid var(--border); border-radius: 4px; padding: 2.5rem; box-shadow: 0 4px 24px rgba(74,103,65,0.06); }
-    .form-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; margin-bottom: 1.5rem; }
-    form { display: flex; flex-direction: column; gap: 1.1rem; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
-    label { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mid); }
-    input, textarea { background: var(--cream); border: 1px solid var(--border); border-radius: 2px; padding: 0.72rem 1rem; font-family: 'Jost', sans-serif; font-size: 0.92rem; color: var(--ink); width: 100%; outline: none; transition: border-color 0.2s, background 0.2s; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.45fr; gap: 4rem; align-items: start; }
+    .ci h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.9rem,3vw,2.5rem); font-weight: 400; margin-bottom: 1rem; line-height: 1.2; }
+    .ci p { font-size: 0.9rem; color: var(--mid); font-weight: 300; line-height: 1.8; margin-bottom: 1.75rem; }
+    .cd { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2rem; }
+    .cd a { text-decoration: none; color: var(--green); font-weight: 500; font-size: 0.92rem; display: flex; align-items: center; gap: 0.45rem; }
+    .cd a:hover { color: var(--green-light); }
+    .sms { background: var(--pink-pale); border-left: 3px solid var(--pink); padding: 0.9rem 1.15rem; font-size: 0.75rem; color: var(--mid); line-height: 1.65; border-radius: 0 4px 4px 0; }
+    .fc { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 2.5rem; box-shadow: var(--shadow); }
+    .fc h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 1.4rem; }
+    form { display: flex; flex-direction: column; gap: 1rem; }
+    .fr { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .fg { display: flex; flex-direction: column; gap: 0.32rem; }
+    label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mid); }
+    input, textarea { background: var(--cream); border: 1.5px solid var(--border); border-radius: 5px; padding: 0.72rem 0.95rem; font-family: 'Jost', sans-serif; font-size: 0.92rem; color: var(--ink); width: 100%; outline: none; transition: border-color 0.2s, background 0.2s; -webkit-appearance: none; }
     input:focus, textarea:focus { border-color: var(--pink); background: #fff; }
-    textarea { resize: vertical; min-height: 85px; }
-    .consent-block { display: flex; gap: 0.75rem; align-items: flex-start; background: var(--pink-pale); border: 1px solid rgba(181,82,122,0.15); border-radius: 2px; padding: 0.9rem 1rem; }
-    .consent-block input[type="checkbox"] { width: 15px; height: 15px; min-width: 15px; margin-top: 3px; accent-color: var(--pink); cursor: pointer; }
-    .consent-text { font-size: 0.74rem; color: var(--mid); line-height: 1.6; }
-    .consent-text a { color: var(--pink); }
-    .submit-btn { background: var(--pink); color: #fff; border: none; padding: 1rem 2rem; font-family: 'Jost', sans-serif; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.04em; cursor: pointer; border-radius: 2px; transition: background 0.2s; width: 100%; }
-    .submit-btn:hover { background: var(--pink-light); }
+    textarea { resize: vertical; min-height: 88px; }
+    .cb { display: flex; gap: 0.7rem; align-items: flex-start; background: var(--pink-pale); border: 1px solid rgba(181,82,122,0.18); border-radius: 5px; padding: 0.85rem 0.95rem; }
+    .cb input[type="checkbox"] { width: 17px; height: 17px; min-width: 17px; margin-top: 1px; accent-color: var(--pink); cursor: pointer; -webkit-appearance: checkbox; }
+    .ct { font-size: 0.73rem; color: var(--mid); line-height: 1.6; }
+    .ct a { color: var(--pink); }
+    .sb { background: var(--pink); color: #fff; border: none; padding: 1rem 2rem; font-family: 'Jost', sans-serif; font-size: 0.92rem; font-weight: 600; cursor: pointer; border-radius: 5px; transition: background 0.2s, transform 0.15s; width: 100%; }
+    .sb:hover { background: var(--pink-light); transform: translateY(-1px); }
 
-    #privacy { background: var(--sand); padding: 5rem 4rem; border-top: 1px solid var(--border); }
-    .privacy-body { max-width: 780px; }
-    .privacy-body h2 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 400; margin-bottom: 0.5rem; }
-    .privacy-body h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; margin: 2rem 0 0.6rem; color: var(--green); }
-    .privacy-body p, .privacy-body ul { font-size: 0.88rem; color: var(--mid); line-height: 1.8; font-weight: 300; }
-    .privacy-body ul { padding-left: 1.5rem; }
-    .privacy-body ul li { margin-bottom: 0.35rem; }
+    .pb { max-width: 760px; }
+    .pb h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem,3vw,2.4rem); font-weight: 400; margin-bottom: 0.35rem; }
+    .pb .lu { font-size: 0.82rem; color: var(--mid); margin-bottom: 2rem; }
+    .pb h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.12rem; font-weight: 600; margin: 1.75rem 0 0.55rem; color: var(--green); }
+    .pb p, .pb ul { font-size: 0.87rem; color: var(--mid); line-height: 1.8; font-weight: 300; }
+    .pb ul { padding-left: 1.5rem; }
+    .pb li { margin-bottom: 0.3rem; }
 
-    footer { background: var(--ink); padding: 2.5rem 4rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-    .footer-logo img { height: 30px; width: auto; display: block; }
-    .footer-links { display: flex; gap: 2rem; list-style: none; }
-    .footer-links a { color: rgba(255,255,255,0.38); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.06em; transition: color 0.2s; }
-    .footer-links a:hover { color: #fff; }
-    .footer-copy { color: rgba(255,255,255,0.28); font-size: 0.78rem; }
+    footer { background: var(--ink); padding: 2.5rem 5%; }
+    .ft { display: flex; justify-content: space-between; align-items: center; padding-bottom: 1.75rem; border-bottom: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap; gap: 1.5rem; }
+    .fl-logo { background: rgba(255,255,255,0.08); border-radius: 5px; padding: 5px 11px; line-height: 0; }
+    .fl-logo img { height: 28px; width: auto; }
+    .fl { display: flex; gap: 1.75rem; list-style: none; flex-wrap: wrap; }
+    .fl a { color: rgba(255,255,255,0.38); text-decoration: none; font-size: 0.78rem; letter-spacing: 0.06em; transition: color 0.2s; }
+    .fl a:hover { color: #fff; }
+    .fb { padding-top: 1.4rem; font-size: 0.76rem; color: rgba(255,255,255,0.22); text-align: center; }
 
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
-    .hero-left-content > * { animation: fadeUp 0.7s ease both; }
-    .hero-left-content > *:nth-child(1) { animation-delay: 0.1s; }
-    .hero-left-content > *:nth-child(2) { animation-delay: 0.22s; }
-    .hero-left-content > *:nth-child(3) { animation-delay: 0.34s; }
-    .hero-right > * { animation: fadeUp 0.7s ease both; }
-    .hero-right > *:nth-child(1) { animation-delay: 0.2s; }
-    .hero-right > *:nth-child(2) { animation-delay: 0.3s; }
-    .hero-right > *:nth-child(3) { animation-delay: 0.4s; }
-    .hero-right > *:nth-child(4) { animation-delay: 0.5s; }
-    .hero-right > *:nth-child(5) { animation-delay: 0.6s; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-content > * { animation: fadeUp 0.65s ease both; }
+    .hero-content > *:nth-child(1) { animation-delay: 0.05s; }
+    .hero-content > *:nth-child(2) { animation-delay: 0.15s; }
+    .hero-content > *:nth-child(3) { animation-delay: 0.25s; }
+    .hero-content > *:nth-child(4) { animation-delay: 0.32s; }
+    .hero-content > *:nth-child(5) { animation-delay: 0.4s; }
 
-    @media (max-width: 900px) {
-      nav { padding: 0 1.5rem; }
+    @media (max-width: 768px) {
+      nav { padding: 0 4%; }
       .nav-links { display: none; }
-      .hero { grid-template-columns: 1fr; }
-      .hero-left { height: 380px; }
-      .hero-right { padding: 2.5rem 1.5rem; }
-      .photo-strip { grid-template-columns: repeat(2,1fr); height: auto; }
-      .strip-item { height: 140px; }
-      .section, #contact, #privacy, .why-section { padding: 3.5rem 1.5rem; }
-      .steps { grid-template-columns: 1fr; }
+      .hamburger { display: flex; }
+      .hero { min-height: 100svh; }
+      .hero-content { padding: 3rem 4%; max-width: 100%; }
+      .hero h1 { font-size: 2.5rem; }
+      .hero-stats { gap: 1.5rem; }
+      .hero-ctas { flex-direction: column; }
+      .hero-ctas a { width: 100%; justify-content: center; }
+      .trust-bar { gap: 1rem; padding: 1rem 4%; }
+      .photo-strip { grid-template-columns: 1fr 1fr; height: auto; }
+      .strip-item { height: 130px; }
+      .section { padding: 3.5rem 4%; }
+      .steps { grid-template-columns: 1fr; gap: 1.25rem; }
       .why-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .why-photo { height: 300px; }
+      .why-photo { height: 320px; }
       .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .form-row { grid-template-columns: 1fr; }
-      footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+      .fr { grid-template-columns: 1fr; }
+      .fc { padding: 1.75rem; }
+      .ft { flex-direction: column; align-items: flex-start; }
+      footer { padding: 2rem 4%; }
     }
   </style>
 </head>
 <body>
 
 <nav>
-  <a href="#" class="nav-logo">
-    <div class="nav-logo-wrap">
+  <a href="#" style="line-height:0;text-decoration:none;">
+    <div class="nav-logo">
       <img src="https://raw.githubusercontent.com/quillfutures-Land/landlotus-site/main/landlotus-logo-pink.png" alt="Land Lotus" />
     </div>
   </a>
   <ul class="nav-links">
     <li><a href="#how-it-works">How It Works</a></li>
     <li><a href="#why-us">Why Us</a></li>
-    <li><a href="#privacy">Privacy Policy</a></li>
+    <li><a href="#privacy">Privacy</a></li>
     <li><a href="#contact" class="nav-cta">Get an Offer</a></li>
   </ul>
+  <button class="hamburger" onclick="document.getElementById('mob-menu').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="mobile-menu" id="mob-menu">
+  <a href="#how-it-works" onclick="document.getElementById('mob-menu').classList.remove('open')">How It Works</a>
+  <a href="#why-us" onclick="document.getElementById('mob-menu').classList.remove('open')">Why Us</a>
+  <a href="#privacy" onclick="document.getElementById('mob-menu').classList.remove('open')">Privacy Policy</a>
+  <a href="#contact" class="mob-cta" onclick="document.getElementById('mob-menu').classList.remove('open')">Get a Free Offer →</a>
+</div>
 
 <section class="hero">
-  <div class="hero-left">
-    <img class="hero-bg" src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=900&q=80&fit=crop" alt="Aerial view of open rural land" loading="eager" />
-    <div class="hero-overlay"></div>
-    <div class="hero-left-content">
-      <h1 class="hero-tagline">Your land deserves a <em>fair offer</em> and a fresh start.</h1>
-      <p class="hero-sub">Land Lotus buys rural and vacant land across America. No agents, no commissions, no months of waiting — just a straightforward cash offer directly to you.</p>
-      <div class="hero-stats">
-        <div><span class="stat-num">48</span><span class="stat-label">States Active</span></div>
-        <div><span class="stat-num">$0</span><span class="stat-label">Commissions</span></div>
-        <div><span class="stat-num">Cash</span><span class="stat-label">Offers Only</span></div>
-      </div>
+  <img class="hero-bg" src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1600&q=85&fit=crop" alt="Aerial view of open rural land" loading="eager" />
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🌿 Nationwide Land Buyers</div>
+    <h1>Your land deserves a <em>fair offer</em> and a fresh start.</h1>
+    <p class="hero-sub">Land Lotus buys rural and vacant land across America — no agents, no commissions, no months of waiting. A straightforward cash offer, directly to you.</p>
+    <div class="hero-stats">
+      <div><span class="stat-num">48</span><span class="stat-label">States Active</span></div>
+      <div><span class="stat-num">$0</span><span class="stat-label">Commissions</span></div>
+      <div><span class="stat-num">Cash</span><span class="stat-label">Offers Only</span></div>
     </div>
-  </div>
-  <div class="hero-right">
-    <div class="eyebrow">Nationwide Land Buyers</div>
-    <h2>Ready to sell your land without the hassle?</h2>
-    <p>We work directly with landowners — no middlemen, no surprises. Whether you received a letter from us or reached out on your own, we'd love to make you an offer.</p>
-    <div class="cta-row">
+    <div class="hero-ctas">
       <a href="#contact" class="btn-pink">Get a Free Offer →</a>
-      <a href="tel:7028405350" class="phone-link">📞 702-840-5350</a>
+      <a href="tel:7028405350" class="btn-ghost">📞 702-840-5350</a>
     </div>
   </div>
 </section>
+
+<div class="trust-bar">
+  <div class="trust-item">✅ No Agent Fees</div>
+  <div class="trust-item">💵 Cash Offers</div>
+  <div class="trust-item">⚡ Fast Closings</div>
+  <div class="trust-item">📋 Licensed Title Company</div>
+  <div class="trust-item">🗺️ 48 States</div>
+</div>
 
 <div class="photo-strip">
   <div class="strip-item">
@@ -227,8 +240,8 @@
 </div>
 
 <section id="how-it-works" class="section">
-  <div class="section-eyebrow">The Process</div>
-  <h2 class="section-h2">Three simple steps to sell your land.</h2>
+  <div class="eyebrow">The Process</div>
+  <h2 class="sh">Three simple steps to sell your land.</h2>
   <div class="steps">
     <div class="step">
       <div class="step-photo">
@@ -237,7 +250,7 @@
       </div>
       <div class="step-body">
         <h3>Tell Us About Your Property</h3>
-        <p>Fill out the short form below or call us directly. We'll ask a few simple questions — location, acreage, and your situation. No commitment, no pressure.</p>
+        <p>Fill out the short form or call us. We'll ask a few simple questions — location, acreage, and your situation. No commitment, no pressure.</p>
       </div>
     </div>
     <div class="step">
@@ -247,7 +260,7 @@
       </div>
       <div class="step-body">
         <h3>Receive a Cash Offer</h3>
-        <p>We research your parcel and come back with a fair cash offer — typically within a few business days. No obligation to accept.</p>
+        <p>We research your parcel and return with a fair cash offer — typically within a few business days. No obligation to accept.</p>
       </div>
     </div>
     <div class="step">
@@ -257,168 +270,109 @@
       </div>
       <div class="step-body">
         <h3>Close on Your Timeline</h3>
-        <p>We handle all the paperwork through a licensed title company. You choose the closing date. Cash comes to you at closing — clean and simple.</p>
+        <p>We handle all the paperwork through a licensed title company. You pick the date. Cash comes to you at closing.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="why-us" class="why-section">
+<section id="why-us" class="section section-dark">
   <div class="why-grid">
     <div>
-      <div class="why-eyebrow">Why Land Lotus</div>
-      <h2 class="why-h2">We make selling land the way it should be.</h2>
+      <div class="eyebrow eyebrow-light">Why Land Lotus</div>
+      <h2 class="sh sh-light">We make selling land the way it should be.</h2>
       <div class="why-list">
-        <div class="why-item">
-          <div class="why-check">✓</div>
-          <div>
-            <h4>No Agent Fees or Commissions</h4>
-            <p>Every dollar of your offer stays in your pocket. We cover our own closing costs — no deductions, no surprises.</p>
-          </div>
-        </div>
-        <div class="why-item">
-          <div class="why-check">✓</div>
-          <div>
-            <h4>All Land Types Welcome</h4>
-            <p>Wooded lots, desert parcels, farmland, recreational acreage — we buy it all across 48 states.</p>
-          </div>
-        </div>
-        <div class="why-item">
-          <div class="why-check">✓</div>
-          <div>
-            <h4>Fast &amp; Transparent Process</h4>
-            <p>No months on the market. No tire-kickers. We move quickly and keep you informed every step of the way.</p>
-          </div>
-        </div>
-        <div class="why-item">
-          <div class="why-check">✓</div>
-          <div>
-            <h4>Licensed Title Company Closing</h4>
-            <p>Every transaction closes through a licensed title company for your full protection and peace of mind.</p>
-          </div>
-        </div>
+        <div class="why-item"><div class="why-icon">✓</div><div><h4>No Agent Fees or Commissions</h4><p>Every dollar of your offer stays in your pocket. We cover our own closing costs — no surprises.</p></div></div>
+        <div class="why-item"><div class="why-icon">✓</div><div><h4>All Land Types Welcome</h4><p>Wooded lots, desert parcels, farmland, recreational acreage — we buy all types across 48 states.</p></div></div>
+        <div class="why-item"><div class="why-icon">✓</div><div><h4>Fast &amp; Transparent</h4><p>No months on the market. We move quickly and keep you informed every step of the way.</p></div></div>
+        <div class="why-item"><div class="why-icon">✓</div><div><h4>Licensed Title Company Closing</h4><p>Every deal closes through a licensed title company for your full protection and peace of mind.</p></div></div>
       </div>
     </div>
     <div class="why-photo">
-      <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=700&q=80&fit=crop" alt="Beautiful open landscape" loading="lazy" />
-      <div class="why-photo-cta">
+      <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&q=80&fit=crop" alt="Beautiful open landscape" loading="lazy" />
+      <div class="why-cta">
         <h3>Ready to find out what your land is worth?</h3>
         <p>No obligation. Get a free cash offer on your timeline.</p>
-        <a href="#contact" class="btn-outline">Request a Free Offer</a>
+        <a href="#contact" class="btn-ow">Request a Free Offer</a>
       </div>
     </div>
   </div>
 </section>
 
-<section id="contact">
+<section id="contact" class="section section-alt">
   <div class="contact-grid">
-    <div class="contact-left">
-      <div class="section-eyebrow">Contact Us</div>
+    <div class="ci">
+      <div class="eyebrow">Contact Us</div>
       <h2>Get your free cash offer today.</h2>
-      <p>Whether you received a letter or postcard from us, or you're reaching out on your own — we'd love to hear from you. Fill out the form and we'll be in touch promptly.</p>
-      <div class="contact-details">
+      <p>Whether you received a letter from us or you're reaching out on your own — we'd love to hear from you. Fill out the form and we'll be in touch promptly.</p>
+      <div class="cd">
         <a href="tel:7028405350">📞 702-840-5350</a>
         <a href="mailto:info@landlotus.com">✉ info@landlotus.com</a>
       </div>
-      <div class="sms-box">
-        <strong>Text &amp; Call Consent:</strong> By submitting this form or replying to any outreach from Land Lotus / Quill Adventures LLC, you consent to receive SMS text messages and phone calls regarding your property. Message and data rates may apply. Reply <strong>STOP</strong> to opt out at any time. Reply <strong>HELP</strong> for help.
-      </div>
+      <div class="sms"><strong>Text &amp; Call Consent:</strong> By submitting this form or replying to any outreach from Land Lotus / Quill Adventures LLC, you consent to receive SMS messages and phone calls about your property. Msg &amp; data rates may apply. Reply <strong>STOP</strong> to opt out. Reply <strong>HELP</strong> for help.</div>
     </div>
-    <div class="form-card">
+    <div class="fc">
       <h3>Tell us about your property</h3>
       <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="contact" />
         <p style="display:none"><input name="bot-field" /></p>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="fname">First Name</label>
-            <input type="text" id="fname" name="first_name" required />
-          </div>
-          <div class="form-group">
-            <label for="lname">Last Name</label>
-            <input type="text" id="lname" name="last_name" required />
-          </div>
+        <div class="fr">
+          <div class="fg"><label for="fn">First Name</label><input type="text" id="fn" name="first_name" required /></div>
+          <div class="fg"><label for="ln">Last Name</label><input type="text" id="ln" name="last_name" required /></div>
         </div>
-        <div class="form-group">
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" required />
+        <div class="fg"><label for="ph">Phone Number</label><input type="tel" id="ph" name="phone" required /></div>
+        <div class="fg"><label for="em">Email Address</label><input type="email" id="em" name="email" /></div>
+        <div class="fg"><label for="pr">Property Location (County &amp; State)</label><input type="text" id="pr" name="property_location" placeholder="e.g. Nye County, NV" required /></div>
+        <div class="fg"><label for="msg">Anything else you'd like us to know?</label><textarea id="msg" name="message"></textarea></div>
+        <div class="cb">
+          <input type="checkbox" id="con" name="sms_consent" value="yes" required />
+          <label for="con" class="ct">I agree to be contacted by Land Lotus / Quill Adventures LLC via SMS, phone, and email about my property. I can reply STOP at any time to opt out. Msg &amp; data rates may apply. See our <a href="#privacy">Privacy Policy</a>.</label>
         </div>
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" />
-        </div>
-        <div class="form-group">
-          <label for="property">Property Location (County &amp; State)</label>
-          <input type="text" id="property" name="property_location" placeholder="e.g. Nye County, NV" required />
-        </div>
-        <div class="form-group">
-          <label for="message">Anything else you'd like us to know?</label>
-          <textarea id="message" name="message"></textarea>
-        </div>
-        <div class="consent-block">
-          <input type="checkbox" id="consent" name="sms_consent" value="yes" required />
-          <label for="consent" class="consent-text">
-            I agree to be contacted by Land Lotus / Quill Adventures LLC via SMS, phone, and email about my property. I can reply STOP at any time to opt out of text messages. Msg &amp; data rates may apply. See our <a href="#privacy">Privacy Policy</a>.
-          </label>
-        </div>
-        <button type="submit" class="submit-btn">Submit My Information →</button>
+        <button type="submit" class="sb">Submit My Information →</button>
       </form>
     </div>
   </div>
 </section>
 
-<section id="privacy">
-  <div class="privacy-body">
-    <div class="section-eyebrow">Legal</div>
+<section id="privacy" class="section">
+  <div class="pb">
+    <div class="eyebrow">Legal</div>
     <h2>Privacy Policy</h2>
-    <p>Last updated: June 2026</p>
+    <p class="lu">Last updated: June 2026</p>
     <h3>Who We Are</h3>
     <p>Land Lotus is a brand operated by Quill Adventures LLC ("we," "us," or "our"), a land acquisition company based in the United States. We purchase rural and vacant land nationwide. Our website is landlotus.com.</p>
     <h3>Information We Collect</h3>
     <p>We collect information you provide directly to us, including:</p>
-    <ul>
-      <li>Name, phone number, and email address</li>
-      <li>Property location and ownership information</li>
-      <li>Communications you send us via form, SMS, phone, or email</li>
-    </ul>
+    <ul><li>Name, phone number, and email address</li><li>Property location and ownership information</li><li>Communications you send us via form, SMS, phone, or email</li></ul>
     <p>We may also receive your contact information through public property records or our direct mail and outreach programs.</p>
     <h3>How We Use Your Information</h3>
-    <p>We use the information we collect to:</p>
-    <ul>
-      <li>Contact you about a potential purchase offer for your land</li>
-      <li>Send follow-up SMS messages and emails as part of our acquisition process</li>
-      <li>Schedule calls or coordinate closing documents if a transaction moves forward</li>
-      <li>Improve our services and communications</li>
-    </ul>
+    <ul><li>Contact you about a potential purchase offer for your land</li><li>Send follow-up SMS messages and emails as part of our acquisition process</li><li>Schedule calls or coordinate closing if a transaction moves forward</li><li>Improve our services and communications</li></ul>
     <h3>SMS / Text Messaging</h3>
-    <p>By responding to our outreach or submitting your contact information, you consent to receive SMS text messages from Land Lotus / Quill Adventures LLC. These messages may include offer details, follow-up questions, and scheduling coordination. Message and data rates may apply. Message frequency varies.</p>
-    <ul>
-      <li>Reply <strong>STOP</strong> at any time to opt out of SMS messages.</li>
-      <li>Reply <strong>HELP</strong> for assistance.</li>
-      <li>Opt-out requests are honored immediately and permanently.</li>
-    </ul>
+    <p>By responding to our outreach or submitting your contact information, you consent to receive SMS text messages from Land Lotus / Quill Adventures LLC. Message and data rates may apply. Message frequency varies.</p>
+    <ul><li>Reply <strong>STOP</strong> to opt out of SMS messages at any time.</li><li>Reply <strong>HELP</strong> for assistance.</li><li>Opt-out requests are honored immediately and permanently.</li></ul>
     <h3>Sharing of Information</h3>
-    <p>We do not sell, trade, or rent your personal information to third parties. We may share information with service providers who assist us in operating our business (e.g., title companies, closing agents), but only as necessary to complete a transaction you have agreed to.</p>
+    <p>We do not sell, trade, or rent your personal information to third parties. We may share information with service providers (e.g., title companies, closing agents) only as necessary to complete a transaction you have agreed to.</p>
     <h3>Data Retention</h3>
-    <p>We retain contact information for as long as necessary to fulfill the purposes outlined in this policy or as required by law. You may request deletion of your information at any time by contacting us.</p>
+    <p>We retain contact information as long as necessary to fulfill the purposes outlined in this policy or as required by law. You may request deletion at any time.</p>
     <h3>Your Rights</h3>
-    <p>You have the right to access, correct, or request deletion of any personal information we hold about you. To exercise these rights, contact us at info@landlotus.com or 702-840-5350.</p>
+    <p>You have the right to access, correct, or request deletion of any personal information we hold. Contact us at info@landlotus.com or 702-840-5350.</p>
     <h3>Contact Us</h3>
     <p>Quill Adventures LLC (Land Lotus)<br />Phone: 702-840-5350<br />Email: info@landlotus.com<br />Website: landlotus.com</p>
   </div>
 </section>
 
 <footer>
-  <div class="footer-logo">
-    <img src="https://raw.githubusercontent.com/quillfutures-Land/landlotus-site/main/landlotus-logo-pink.png" alt="Land Lotus" />
+  <div class="ft">
+    <div class="fl-logo"><img src="https://raw.githubusercontent.com/quillfutures-Land/landlotus-site/main/landlotus-logo-pink.png" alt="Land Lotus" /></div>
+    <ul class="fl">
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#why-us">Why Us</a></li>
+      <li><a href="#privacy">Privacy Policy</a></li>
+      <li><a href="#contact">Get an Offer</a></li>
+      <li><a href="tel:7028405350">702-840-5350</a></li>
+    </ul>
   </div>
-  <ul class="footer-links">
-    <li><a href="#how-it-works">How It Works</a></li>
-    <li><a href="#why-us">Why Us</a></li>
-    <li><a href="#privacy">Privacy Policy</a></li>
-    <li><a href="tel:7028405350">702-840-5350</a></li>
-  </ul>
-  <div class="footer-copy">© 2026 Quill Adventures LLC. All rights reserved.</div>
+  <div class="fb">© 2026 Quill Adventures LLC (Land Lotus). All rights reserved.</div>
 </footer>
 
 </body>
