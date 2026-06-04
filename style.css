@@ -42,7 +42,7 @@ nav { position: sticky; top: 0; z-index: 500; background: #fff; border-bottom: 1
 .eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--pink); flex-shrink: 0; }
 .eyebrow-light { color: var(--pink-light); }
 .eyebrow-light::before { background: var(--pink-light); }
-h2.sh { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.9rem, 3.5vw, 2.8rem); font-weight: 400; line-height: 1.2; color: var(--ink); margin-bottom: 2.5rem; }
+h2.sh { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 400; line-height: 1.2; color: var(--ink); margin-bottom: 2.5rem; }
 h2.sh-light { color: #fff; }
 
 .btn-pink { background: var(--pink); color: #fff; padding: 0.9rem 2rem; border-radius: 3px; text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: background 0.2s, transform 0.15s; display: inline-flex; align-items: center; gap: 0.4rem; }
