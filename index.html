@@ -10,26 +10,106 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <style>
-    .hero { position: relative; min-height: 92vh; display: flex; align-items: center; }
-    .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
-    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(105deg, rgba(15,22,12,0.88) 0%, rgba(15,22,12,0.55) 55%, rgba(15,22,12,0.18) 100%); }
-    .hero-content { position: relative; z-index: 2; padding: 4rem 5%; max-width: 720px; display: flex; flex-direction: column; gap: 1.75rem; }
-    .hero-logo-wrap { display: flex; }
-    .hero-logo-wrap img { height: 120px; width: auto; filter: brightness(0) invert(1); }
-    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem, 5.5vw, 4.2rem); font-weight: 300; line-height: 1.1; color: #fff; }
+    /* HERO — full width, content centered */
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(10,16,8,0.6) 0%, rgba(10,16,8,0.75) 60%, rgba(10,16,8,0.85) 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 5rem 5%;
+      max-width: 860px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.75rem;
+    }
+    .hero-logo-wrap img {
+      height: 110px;
+      width: auto;
+      filter: brightness(0) invert(1);
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 5.5vw, 4.4rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: #fff;
+    }
     .hero h1 em { font-style: italic; color: #d4789a; }
-    .hero-sub { font-size: 1.05rem; color: rgba(255,255,255,0.72); font-weight: 300; line-height: 1.78; max-width: 520px; }
-    .hero-stats { display: flex; gap: 3rem; padding: 1.4rem 0; border-top: 1px solid rgba(255,255,255,0.18); border-bottom: 1px solid rgba(255,255,255,0.18); }
-    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: #fff; line-height: 1; display: block; }
-    .stat-label { font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
-    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.72);
+      font-weight: 300;
+      line-height: 1.78;
+      max-width: 580px;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 4rem;
+      padding: 1.5rem 0;
+      border-top: 1px solid rgba(255,255,255,0.18);
+      border-bottom: 1px solid rgba(255,255,255,0.18);
+      width: 100%;
+      justify-content: center;
+    }
+    .hero-stat { text-align: center; }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem; color: #fff;
+      line-height: 1; display: block;
+    }
+    .stat-label {
+      font-size: 0.65rem; letter-spacing: 0.14em;
+      text-transform: uppercase; color: rgba(255,255,255,0.45);
+    }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
 
-    .trust { background: var(--green-dark); padding: 1.1rem 5%; display: flex; align-items: center; justify-content: center; gap: 3rem; flex-wrap: wrap; }
-    .trust-item { color: rgba(255,255,255,0.7); font-size: 0.82rem; font-weight: 400; display: flex; align-items: center; gap: 0.6rem; }
-    .trust-dot { width: 5px; height: 5px; border-radius: 50%; background: #d4789a; flex-shrink: 0; }
+    /* TRUST BAR */
+    .trust {
+      background: var(--green-dark);
+      padding: 1.1rem 5%;
+      display: flex; align-items: center;
+      justify-content: center;
+      gap: 2.5rem; flex-wrap: wrap;
+    }
+    .trust-item {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.82rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .trust-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%; background: #d4789a; flex-shrink: 0;
+    }
 
-    .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-    .card { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); transition: transform 0.25s, box-shadow 0.25s; display: flex; flex-direction: column; }
+    /* CARDS */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .card {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 10px; overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s, box-shadow 0.25s;
+      display: flex; flex-direction: column;
+    }
     .card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(30,28,24,0.12); }
     .card-photo { height: 220px; overflow: hidden; }
     .card-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
@@ -41,17 +121,23 @@
     .card-link { text-decoration: none; color: var(--green); font-size: 0.84rem; font-weight: 600; display: flex; align-items: center; gap: 0.4rem; margin-top: 0.5rem; transition: gap 0.2s; }
     .card:hover .card-link { gap: 0.7rem; }
 
-    .cta-band { background: var(--pink); padding: 4rem 5%; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
-    .cta-band h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 300; color: #fff; line-height: 1.2; }
+    /* CTA BAND */
+    .cta-band {
+      background: var(--pink); padding: 4rem 5%;
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+    }
+    .cta-band h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem,3vw,2.6rem); font-weight: 300; color: #fff; line-height: 1.2; }
     .cta-band h2 em { font-style: italic; }
     .btn-white { background: #fff; color: var(--pink); padding: 0.95rem 2.2rem; border-radius: 3px; text-decoration: none; font-size: 0.92rem; font-weight: 700; white-space: nowrap; transition: opacity 0.2s; }
     .btn-white:hover { opacity: 0.9; }
 
+    /* ABOUT */
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
     .about-photo { border-radius: 8px; overflow: hidden; height: 440px; box-shadow: var(--shadow); }
     .about-photo img { width: 100%; height: 100%; object-fit: cover; }
     .about-text { display: flex; flex-direction: column; gap: 1.5rem; }
-    .about-text h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.9rem, 3vw, 2.8rem); font-weight: 400; line-height: 1.2; }
+    .about-text h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.9rem,3vw,2.8rem); font-weight: 400; line-height: 1.2; }
     .about-text p { font-size: 0.95rem; color: var(--mid); font-weight: 300; line-height: 1.82; }
     .check-list { display: flex; flex-direction: column; gap: 0.75rem; }
     .check-item { display: flex; gap: 0.75rem; align-items: center; font-size: 0.9rem; }
@@ -59,13 +145,13 @@
 
     @media (max-width: 768px) {
       .hero { min-height: 100svh; }
-      .hero-content { padding: 3rem 4%; max-width: 100%; }
-      .hero-logo-wrap img { height: 80px; }
+      .hero-content { padding: 3rem 4%; }
+      .hero-logo-wrap img { height: 75px; }
       .hero h1 { font-size: 2.6rem; }
-      .hero-stats { gap: 1.75rem; }
-      .hero-ctas { flex-direction: column; }
+      .hero-stats { gap: 2rem; }
+      .hero-ctas { flex-direction: column; width: 100%; }
       .hero-ctas a { width: 100%; justify-content: center; }
-      .trust { gap: 1.25rem; padding: 1rem 4%; }
+      .trust { gap: 1rem; padding: 1rem 4%; }
       .cards-grid { grid-template-columns: 1fr; }
       .cta-band { flex-direction: column; text-align: center; }
       .cta-band a { width: 100%; text-align: center; }
@@ -95,19 +181,20 @@
   <a href="contact.html" class="mob-cta">Get a Free Offer →</a>
 </div>
 
+<!-- HERO -->
 <section class="hero">
   <img class="hero-bg" src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1800&q=85&fit=crop" alt="Open rural land" loading="eager" />
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-logo-wrap fu fu1">
-      <img src="https://raw.githubusercontent.com/quillfutures-Land/landlotus-site/main/landlotus-stacked-flank-transparent.png" alt="Land Lotus" />
+      <img src="https://raw.githubusercontent.com/quillfutures-Land/landlotus-site/main/landlotus-stacked-flank-transparent.png" alt="Land Lotus — Grounded · Growing" />
     </div>
     <h1 class="fu fu2">Your land deserves a <em>fair offer</em> and a fresh start.</h1>
     <p class="hero-sub fu fu3">Land Lotus buys rural and vacant land across America. No agents, no commissions, no months of waiting — a straightforward cash offer, directly to you.</p>
     <div class="hero-stats fu fu4">
-      <div><span class="stat-num">48</span><span class="stat-label">States Active</span></div>
-      <div><span class="stat-num">$0</span><span class="stat-label">Commissions</span></div>
-      <div><span class="stat-num">Cash</span><span class="stat-label">Offers Only</span></div>
+      <div class="hero-stat"><span class="stat-num">48</span><span class="stat-label">States Active</span></div>
+      <div class="hero-stat"><span class="stat-num">$0</span><span class="stat-label">Commissions</span></div>
+      <div class="hero-stat"><span class="stat-num">Cash</span><span class="stat-label">Offers Only</span></div>
     </div>
     <div class="hero-ctas fu fu5">
       <a href="contact.html" class="btn-pink">Get a Free Offer →</a>
@@ -116,6 +203,7 @@
   </div>
 </section>
 
+<!-- TRUST BAR -->
 <div class="trust">
   <div class="trust-item"><div class="trust-dot"></div> No Agent Fees or Commissions</div>
   <div class="trust-item"><div class="trust-dot"></div> All-Cash Offers</div>
@@ -124,6 +212,7 @@
   <div class="trust-item"><div class="trust-dot"></div> Active in 48 States</div>
 </div>
 
+<!-- SECTION CARDS -->
 <section class="section">
   <div class="eyebrow">What We Offer</div>
   <h2 class="sh">Everything you need to sell your land with confidence.</h2>
@@ -164,6 +253,7 @@
   </div>
 </section>
 
+<!-- ABOUT -->
 <section class="section section-alt">
   <div class="about-grid">
     <div class="about-photo">
@@ -184,6 +274,7 @@
   </div>
 </section>
 
+<!-- CTA BAND -->
 <div class="cta-band">
   <h2>Ready to get a <em>free, no-obligation</em> cash offer?</h2>
   <a href="contact.html" class="btn-white">Get Started Today</a>
