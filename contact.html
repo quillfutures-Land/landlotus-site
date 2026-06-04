@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get a Free Offer — Land Lotus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .contact-wrap { display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: start; }
+    .contact-info h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.9rem,3vw,2.6rem); font-weight: 400; line-height: 1.2; margin-bottom: 1.1rem; }
+    .contact-info p { font-size: 0.92rem; color: var(--mid); font-weight: 300; line-height: 1.82; margin-bottom: 2rem; }
+    .contact-details { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
+    .contact-details a { text-decoration: none; color: var(--green); font-weight: 500; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s; }
+    .contact-details a:hover { color: var(--green-light); }
+    .sms-box { background: var(--pink-pale); border-left: 3px solid var(--pink); padding: 1rem 1.2rem; font-size: 0.76rem; color: var(--mid); line-height: 1.65; border-radius: 0 4px 4px 0; margin-bottom: 2rem; }
+    .why-list { display: flex; flex-direction: column; gap: 0.75rem; }
+    .why-row { display: flex; gap: 0.75rem; align-items: flex-start; }
+    .why-dot { width: 20px; height: 20px; min-width: 20px; background: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 0.65rem; font-weight: 700; margin-top: 1px; }
+    .why-row span { font-size: 0.88rem; color: var(--ink); line-height: 1.5; }
+    @media (max-width: 768px) {
+      .contact-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><img src="https://raw.githubusercontent.com/quillfutures-Land/landlotus-site/main/landlotus-logo-pink-white.png" alt="Land Lotus" /></a>
+  <ul class="nav-links">
+    <li><a href="how-it-works.html">How It Works</a></li>
+    <li><a href="why-us.html">Why Us</a></li>
+    <li><a href="contact.html" class="nav-cta active">Get an Offer</a></li>
+  </ul>
+  <button class="hamburger" onclick="document.getElementById('mob').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mob">
+  <a href="how-it-works.html">How It Works</a>
+  <a href="why-us.html">Why Us</a>
+  <a href="contact.html" class="mob-cta">Get a Free Offer →</a>
+</div>
+
+<div class="page-hero">
+  <img class="page-hero-bg" src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1400&q=60&fit=crop" alt="" />
+  <div class="page-hero-content">
+    <div class="page-hero-eye">Free Cash Offer</div>
+    <h1>Let's talk about <em>your land.</em></h1>
+    <p>Fill out the short form below or give us a call. We'll research your property and get back to you with a fair cash offer — usually within a few business days. No pressure, no obligation.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="contact-wrap">
+    <div class="contact-info">
+      <div class="eyebrow">Get in Touch</div>
+      <h2>Get your free cash offer today.</h2>
+      <p>Whether you received a letter or postcard from us, or you're reaching out on your own — we'd love to hear from you. All land types considered, all 48 states.</p>
+      <div class="contact-details">
+        <a href="tel:7028405350">📞 702-840-5350</a>
+        <a href="mailto:info@landlotus.com">✉ info@landlotus.com</a>
+      </div>
+      <div class="sms-box">
+        <strong>Text &amp; Call Consent:</strong> By submitting this form or replying to any outreach from Land Lotus / Quill Adventures LLC, you consent to receive SMS messages and phone calls about your property. Msg &amp; data rates may apply. Reply <strong>STOP</strong> to opt out. Reply <strong>HELP</strong> for help.
+      </div>
+      <div class="why-list">
+        <div class="why-row"><div class="why-dot">✓</div><span>No agent fees or commissions — ever</span></div>
+        <div class="why-row"><div class="why-dot">✓</div><span>Response typically within a few business days</span></div>
+        <div class="why-row"><div class="why-dot">✓</div><span>No obligation to accept our offer</span></div>
+        <div class="why-row"><div class="why-dot">✓</div><span>Closing handled through a licensed title company</span></div>
+        <div class="why-row"><div class="why-dot">✓</div><span>We buy all types of rural and vacant land</span></div>
+      </div>
+    </div>
+    <div class="form-card">
+      <h3>Tell us about your property</h3>
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact" />
+        <p style="display:none"><input name="bot-field" /></p>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fn">First Name</label>
+            <input type="text" id="fn" name="first_name" required />
+          </div>
+          <div class="form-group">
+            <label for="ln">Last Name</label>
+            <input type="text" id="ln" name="last_name" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="ph">Phone Number</label>
+          <input type="tel" id="ph" name="phone" required />
+        </div>
+        <div class="form-group">
+          <label for="em">Email Address</label>
+          <input type="email" id="em" name="email" />
+        </div>
+        <div class="form-group">
+          <label for="pr">Property Location (County &amp; State)</label>
+          <input type="text" id="pr" name="property_location" placeholder="e.g. Nye County, NV" required />
+        </div>
+        <div class="form-group">
+          <label for="ac">Approximate Acreage</label>
+          <input type="text" id="ac" name="acreage" placeholder="e.g. 10 acres" />
+        </div>
+        <div class="form-group">
+          <label for="msg">Anything else you'd like us to know?</label>
+          <textarea id="msg" name="message"></textarea>
+        </div>
+        <div class="cb">
+          <input type="checkbox" id="con" name="sms_consent" value="yes" required />
+          <label for="con" class="ct">I agree to be contacted by Land Lotus / Quill Adventures LLC via SMS, phone, and email about my property. I can reply STOP at any time to opt out. Msg &amp; data rates may apply. See our <a href="privacy.html">Privacy Policy</a>.</label>
+        </div>
+        <button type="submit" class="sb">Submit My Information →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-top">
+    <div class="ft-brand">
+      <img src="https://raw.githubusercontent.com/quillfutures-Land/landlotus-site/main/landlotus-logo-pink-white.png" alt="Land Lotus" />
+      <p class="ft-tagline">Grounded · Growing</p>
+    </div>
+    <div class="ft-col">
+      <div class="ft-col-label">Navigate</div>
+      <a href="index.html">Home</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="why-us.html">Why Us</a>
+      <a href="contact.html">Get an Offer</a>
+    </div>
+    <div class="ft-col">
+      <div class="ft-col-label">Contact</div>
+      <a href="tel:7028405350">📞 702-840-5350</a>
+      <a href="mailto:info@landlotus.com">✉ info@landlotus.com</a>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <span class="ft-copy">© 2026 Quill Adventures LLC (Land Lotus). All rights reserved.</span>
+    <a href="privacy.html" class="ft-privacy">Privacy Policy</a>
+  </div>
+</footer>
+
+</body>
+</html>

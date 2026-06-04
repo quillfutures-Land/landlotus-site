@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why Land Lotus — Land Lotus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .benefits-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.5rem; }
+    .benefit { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 2.25rem; box-shadow: var(--shadow); transition: transform 0.25s, box-shadow 0.25s; }
+    .benefit:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(30,28,24,0.1); }
+    .benefit-icon { width: 48px; height: 48px; background: var(--pink-pale); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 1.1rem; }
+    .benefit h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; color: var(--ink); margin-bottom: 0.55rem; }
+    .benefit p { font-size: 0.88rem; color: var(--mid); line-height: 1.75; font-weight: 300; }
+
+    .compare { max-width: 800px; margin: 0 auto; }
+    .compare-row { display: grid; grid-template-columns: 2fr 1fr 1fr; border-bottom: 1px solid var(--border); }
+    .compare-row.header { background: var(--green-dark); border-radius: 8px 8px 0 0; }
+    .compare-cell { padding: 1rem 1.25rem; font-size: 0.88rem; display: flex; align-items: center; }
+    .compare-row.header .compare-cell { color: rgba(255,255,255,0.8); font-weight: 600; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; }
+    .compare-cell.center { justify-content: center; text-align: center; }
+    .compare-row:nth-child(even) { background: rgba(74,103,65,0.04); }
+    .yes { color: var(--green); font-size: 1.1rem; font-weight: 700; }
+    .no { color: #c0392b; font-size: 1.1rem; }
+    .compare-row.header .col-us { background: rgba(181,82,122,0.3); }
+    .col-label { font-weight: 400; color: var(--ink); }
+
+    .testimonial-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+    .testimonial { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 2rem; }
+    .testimonial-text { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; color: rgba(255,255,255,0.85); line-height: 1.65; margin-bottom: 1.25rem; }
+    .testimonial-author { font-size: 0.78rem; color: rgba(255,255,255,0.45); letter-spacing: 0.06em; text-transform: uppercase; }
+    .stars { color: var(--pink-light); font-size: 0.9rem; margin-bottom: 0.75rem; letter-spacing: 0.1em; }
+
+    @media (max-width: 768px) {
+      .benefits-grid { grid-template-columns: 1fr; }
+      .testimonial-grid { grid-template-columns: 1fr; }
+      .compare-cell { padding: 0.75rem 0.75rem; font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><img src="https://raw.githubusercontent.com/quillfutures-Land/landlotus-site/main/landlotus-logo-pink-white.png" alt="Land Lotus" /></a>
+  <ul class="nav-links">
+    <li><a href="how-it-works.html">How It Works</a></li>
+    <li><a href="why-us.html" class="active">Why Us</a></li>
+    <li><a href="contact.html" class="nav-cta">Get an Offer</a></li>
+  </ul>
+  <button class="hamburger" onclick="document.getElementById('mob').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mob">
+  <a href="how-it-works.html">How It Works</a>
+  <a href="why-us.html">Why Us</a>
+  <a href="contact.html" class="mob-cta">Get a Free Offer →</a>
+</div>
+
+<div class="page-hero">
+  <img class="page-hero-bg" src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1400&q=60&fit=crop" alt="" />
+  <div class="page-hero-content">
+    <div class="page-hero-eye">Why Land Lotus</div>
+    <h1>We make selling land the way <em>it should be.</em></h1>
+    <p>Selling land doesn't have to mean months of waiting, agent fees, and uncertainty. We built Land Lotus around a simple idea — fair offers, honest dealings, and a process that respects your time.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="eyebrow">Our Advantages</div>
+  <h2 class="sh">What makes Land Lotus different.</h2>
+  <div class="benefits-grid">
+    <div class="benefit">
+      <div class="benefit-icon">💵</div>
+      <h3>No Fees, No Commissions</h3>
+      <p>The offer we make is exactly what you receive. We cover all closing costs ourselves. No agent fees, no commissions, no deductions of any kind.</p>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">⚡</div>
+      <h3>Fast, Flexible Closings</h3>
+      <p>We can close in as little as two weeks, or take longer if you need it. Your timeline, your terms. We work around what works for you.</p>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">🌿</div>
+      <h3>All Land Types Considered</h3>
+      <p>Wooded, desert, farmland, recreational, landlocked — we evaluate all types of rural and vacant land across 48 states. If you have land, we want to make you an offer.</p>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">📋</div>
+      <h3>Licensed Title Company Closing</h3>
+      <p>Every transaction closes through a licensed title company for your full legal protection and peace of mind. Everything is done by the book.</p>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">🤝</div>
+      <h3>Direct, Honest Communication</h3>
+      <p>No runaround, no bait-and-switch. We give you a straight answer and a fair offer. If we can't buy your land, we'll tell you that too.</p>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">🗺️</div>
+      <h3>Nationwide Coverage</h3>
+      <p>We are active buyers in 48 states. Whether your property is in Nevada, Montana, Texas, or Georgia — we can make you an offer.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="eyebrow">Side by Side</div>
+  <h2 class="sh" style="max-width:560px;">How we compare to traditional land sales.</h2>
+  <div class="compare">
+    <div class="compare-row header">
+      <div class="compare-cell"></div>
+      <div class="compare-cell center col-us" style="color:#fff;font-weight:700;">Land Lotus</div>
+      <div class="compare-cell center" style="color:rgba(255,255,255,0.6);">Traditional Agent</div>
+    </div>
+    <div class="compare-row"><div class="compare-cell col-label">Agent fees or commissions</div><div class="compare-cell center yes">None</div><div class="compare-cell center no">5–10%</div></div>
+    <div class="compare-row"><div class="compare-cell col-label">Time to receive an offer</div><div class="compare-cell center yes">Days</div><div class="compare-cell center no">Weeks–Months</div></div>
+    <div class="compare-row"><div class="compare-cell col-label">Time to close</div><div class="compare-cell center yes">2–4 Weeks</div><div class="compare-cell center no">3–12 Months</div></div>
+    <div class="compare-row"><div class="compare-cell col-label">Certainty of closing</div><div class="compare-cell center yes">High</div><div class="compare-cell center no">Low</div></div>
+    <div class="compare-row"><div class="compare-cell col-label">Land prep required</div><div class="compare-cell center yes">None</div><div class="compare-cell center no">Often Required</div></div>
+    <div class="compare-row"><div class="compare-cell col-label">Closing costs</div><div class="compare-cell center yes">We Pay</div><div class="compare-cell center no">Seller Pays</div></div>
+    <div class="compare-row" style="border:none;"><div class="compare-cell col-label">Negotiations</div><div class="compare-cell center yes">Simple</div><div class="compare-cell center no">Complex</div></div>
+  </div>
+</section>
+
+<section class="section section-dark">
+  <div class="eyebrow eyebrow-light">What People Say</div>
+  <h2 class="sh sh-light" style="margin-bottom:2.5rem;">Landowners who've worked with us.</h2>
+  <div class="testimonial-grid">
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <div class="testimonial-text">"The process was incredibly smooth. They made a fair offer, handled all the paperwork, and we closed in three weeks. I couldn't believe how easy it was."</div>
+      <div class="testimonial-author">— Property Owner, Arizona</div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <div class="testimonial-text">"I'd been trying to sell my land for two years with no luck. Land Lotus made me an offer within days and we closed the following month. Wish I'd found them sooner."</div>
+      <div class="testimonial-author">— Property Owner, Montana</div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <div class="testimonial-text">"Honest, professional, and fast. No games, no lowball offers. They said what they'd pay and did exactly that. I'd recommend them to anyone looking to sell land."</div>
+      <div class="testimonial-author">— Property Owner, Texas</div>
+    </div>
+  </div>
+</section>
+
+<div style="background:var(--pink);padding:4rem 5%;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
+  <div>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:300;color:#fff;line-height:1.2;">Ready to get a <em style="font-style:italic;">free, no-obligation</em> offer?</h2>
+    <p style="color:rgba(255,255,255,0.7);font-size:0.92rem;margin-top:0.5rem;font-weight:300;">Takes less than 5 minutes. No commitment required.</p>
+  </div>
+  <a href="contact.html" style="background:#fff;color:var(--pink);padding:0.95rem 2.2rem;border-radius:3px;text-decoration:none;font-size:0.92rem;font-weight:700;white-space:nowrap;transition:opacity 0.2s;">Get Started Today</a>
+</div>
+
+<footer>
+  <div class="ft-top">
+    <div class="ft-brand">
+      <img src="https://raw.githubusercontent.com/quillfutures-Land/landlotus-site/main/landlotus-logo-pink-white.png" alt="Land Lotus" />
+      <p class="ft-tagline">Grounded · Growing</p>
+    </div>
+    <div class="ft-col">
+      <div class="ft-col-label">Navigate</div>
+      <a href="index.html">Home</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="why-us.html">Why Us</a>
+      <a href="contact.html">Get an Offer</a>
+    </div>
+    <div class="ft-col">
+      <div class="ft-col-label">Contact</div>
+      <a href="tel:7028405350">📞 702-840-5350</a>
+      <a href="mailto:info@landlotus.com">✉ info@landlotus.com</a>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <span class="ft-copy">© 2026 Quill Adventures LLC (Land Lotus). All rights reserved.</span>
+    <a href="privacy.html" class="ft-privacy">Privacy Policy</a>
+  </div>
+</footer>
+
+</body>
+</html>
