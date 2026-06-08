@@ -38,7 +38,7 @@ nav { position: sticky; top: 0; z-index: 500; background: #fff; border-bottom: 1
 .section { padding: 5rem 5%; }
 .section-alt { background: var(--sand); }
 .section-dark { background: var(--green-dark); }
-.eyebrow { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--pink); display: flex; align-items: center; gap: 0.55rem; margin-bottom: 0.75rem; }
+.eyebrow { font-size: 0.9rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--pink); display: flex; align-items: center; gap: 0.55rem; margin-bottom: 0.75rem; }
 .eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--pink); flex-shrink: 0; }
 .eyebrow-light { color: var(--pink-light); }
 .eyebrow-light::before { background: var(--pink-light); }
@@ -54,7 +54,7 @@ h2.sh-light { color: #fff; }
 .btn-outline-g { border: 1.5px solid var(--green); color: var(--green); padding: 0.8rem 1.75rem; border-radius: 3px; text-decoration: none; font-size: 0.88rem; font-weight: 600; display: inline-block; transition: background 0.2s, color 0.2s; }
 .btn-outline-g:hover { background: var(--green); color: #fff; }
 
-footer { background: var(--ink); padding: 3rem 5% 1.5rem; }
+footer { background: var(--ink); padding: 1.75rem 5%; }
 .ft-top { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap; gap: 2.5rem; }
 .ft-brand img { height: 42px; width: auto; }
 .ft-tagline { font-size: 0.78rem; color: rgba(255,255,255,0.3); margin-top: 0.5rem; font-style: italic; }
