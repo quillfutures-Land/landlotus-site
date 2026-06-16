@@ -16,6 +16,7 @@
     .contact-details a { text-decoration: none; color: var(--green); font-weight: 500; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s; }
     .contact-details a:hover { color: var(--green-light); }
     .sms-box { background: var(--pink-pale); border-left: 3px solid var(--pink); padding: 1rem 1.2rem; font-size: 0.76rem; color: var(--mid); line-height: 1.65; border-radius: 0 4px 4px 0; margin-bottom: 2rem; }
+    .sms-box a { color: var(--green); }
     .why-list { display: flex; flex-direction: column; gap: 0.75rem; }
     .why-row { display: flex; gap: 0.75rem; align-items: flex-start; }
     .why-dot { width: 20px; height: 20px; min-width: 20px; background: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 0.65rem; font-weight: 700; margin-top: 1px; }
@@ -64,7 +65,7 @@
         <a href="mailto:hello@landlotus.com">✉ hello@landlotus.com</a>
       </div>
       <div class="sms-box">
-        <strong>Text &amp; Call Consent:</strong> By submitting this form or replying to any outreach from Land Lotus / Quill Adventures LLC, you consent to receive SMS messages and phone calls about your property. Msg &amp; data rates may apply. Reply <strong>STOP</strong> to opt out. Reply <strong>HELP</strong> for help.
+        <strong>Messaging Program:</strong> If you opt in below, Land Lotus / Quill Adventures LLC will text you about your property — offer details, follow-up questions, and scheduling. Message frequency varies. Msg &amp; data rates may apply. Reply <strong>STOP</strong> to opt out, <strong>HELP</strong> for help. See our <a href="sms-terms.html">Messaging Terms</a> and <a href="privacy.html">Privacy Policy</a>. <strong>SMS consent is optional and is not required to submit this form or get your offer.</strong>
       </div>
       <div class="why-list">
         <div class="why-row"><div class="why-dot">✓</div><span>No agent fees or commissions — ever</span></div>
@@ -110,8 +111,8 @@
           <textarea id="msg" name="message"></textarea>
         </div>
         <div class="cb">
-          <input type="checkbox" id="con" name="sms_consent" value="yes" required />
-          <label for="con" class="ct">I agree to be contacted by Land Lotus / Quill Adventures LLC via SMS, phone, and email about my property. I can reply STOP at any time to opt out. Msg &amp; data rates may apply. See our <a href="privacy.html">Privacy Policy</a>.</label>
+          <input type="checkbox" id="con" name="sms_consent" value="yes" />
+          <label for="con" class="ct"><strong>Optional:</strong> I agree to receive recurring SMS text messages from Land Lotus / Quill Adventures LLC about my property. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. See <a href="sms-terms.html">Messaging Terms</a> &amp; <a href="privacy.html">Privacy Policy</a>. Checking this box is not required to submit this form or receive an offer.</label>
         </div>
         <button type="submit" class="sb">Submit My Information →</button>
       </form>
@@ -140,7 +141,7 @@
   </div>
   <div class="ft-bottom">
     <span class="ft-copy">© 2026 Quill Adventures LLC (Land Lotus). All rights reserved.</span>
-    <a href="privacy.html" class="ft-privacy">Privacy Policy</a>
+    <span class="ft-legal-links"><a href="sms-terms.html" class="ft-privacy">Messaging Terms</a> · <a href="privacy.html" class="ft-privacy">Privacy Policy</a></span>
   </div>
 </footer>
 
